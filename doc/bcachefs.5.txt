@@ -33,6 +33,184 @@ command takes care to propagate options to children correctly).
 
  * TODO: include master list of options from opts.h
 #include "opts.mdwn"
+FILE SYSTEM OPTIONS
+      A filesystem formatted for bcachefs can have some collection of the following
+      file system feature flags enabled.
+
+      acl
+              This option will enable POSIX acls.
+
+      background_compression
+              This option allows the background compression algorithm to be altered.
+              The default is set to NONE, which means no background compression is
+              utilized.
+
+      background_target
+              Device or disk group to move data to in the background.
+
+      block_size
+              This option allows the block size used by bcachefs to be changed
+              from its default of 8KB.
+      
+      btree_node_size
+              This option allows the size of each Btree node to be altered from
+              its default size of 256KB.
+
+      bucket
+              This option allows the size of a bcachefs file system on device
+              to be set manually.
+
+      compression
+              This option allows the compression algorithm used to be altered.
+              The default is set to NONE, which means no compression utilized.
+
+      data_checksum
+              This option sets the checksum algorithm type to be used for
+              storing data. The default is CRC32C.
+
+      data_replicas
+              The number of data replicas desired for device.
+
+      data_replicas_required
+              The minimum number of data replicas for device.
+
+      degraded
+              When set, this option enables mounting in degraded mode.
+
+      discard
+              When set, this option allows discard/TRIM support.
+
+      durability
+              Data written to this device will be considered to have
+              already been replicated the specified number of times.
+              The default is 1.
+
+      erasure_code
+              Enable erasure coding (WIP, DO NOT USE YET).
+
+      errors
+              The action to take upon file system errors.
+
+      fix_errors
+              When set, this options allows errors during fsck to
+              be fixed without asking.
+
+      foreground_target
+              Device or disk group for foreground writes.
+
+      fsck
+              Run fsck on mount.
+
+      fs_size
+              This option allows the size of a bcachefs file system
+              on device to be manually set.
+
+      gc_reserve_bytes
+              Amount of disk space to reserve for copygc.
+              Takes precedence over gc_reserve_percent if set.
+
+      gc_reserve_percent
+              Percentage of disk space to reserve for copygc.
+
+      grp_quotas
+              When set, this option allows the use of group quotas.
+
+      inline_data
+              This option, when enabled, allows inline data extents.
+
+      inodes_32bit
+              This option allows the contraint of inode numbers to 32 bits.
+
+      journal_flush_disabled
+              Disable journal flush on sync/fsync.
+              If enabled, writes can be lost, but only since the
+              last journal write (default 1 second).
+
+      keep_journal
+              When set, this option will not free journal entries or keys
+              after startup.
+
+      metadata_checksum
+              This option sets the checksum algorithm type to be used for
+              storing metadata. The default is CRC32C.
+
+      metadata_replicas
+              The number of metadata replicas desired for device.
+
+      metadata_replicas_required
+              The minimum amount of metadata replicas required for device.
+
+      nochanges
+              Super read only mode.
+              No writes at all will be issued, even if we have to replay
+              the journal.
+
+      noexcl
+              When set, devices will not be opened in exclusive mode.
+
+      norecovery
+              This option will disable replay of the journal.
+
+      nostart
+              When set, this option will not start the file system.
+              Only devices will be opened.
+
+      prjquota
+              When set, this option allows the use of project quotas.
+
+      project
+              TODO: Add discription of option.
+
+      promote_target
+              Device or disk group to promote data to on read.
+
+      ratelimit_errors
+              When set, this option allows Ratelimit error messages
+              during fsck.
+
+      read_entire_journal
+              When set, this option will force reading of all journal
+              entries, not just dirty ones.
+
+      read_only
+              When set, device or disk group will only be able to be
+              read from.
+
+      rebuild_replicas
+              Rebuild the superblock replicas section.
+
+      reconstruct_alloc
+              When set, this option will reconstruct alloc btree.
+
+      reflink
+              When set, this option enables reflink support.
+
+      root_reserve_percent
+              Percentage of disk space to reserve for the superuser.
+
+      sb
+              Set the sector offset of the superblock.
+
+      str_hash
+              The hash function utilized for directory entries and xattrs.
+              The default is set to SIPHASH.
+
+      usrquota
+              When set, this option allows the use of user quotas.
+
+      verbose
+              When set, this option provides extra debugging information
+              during mount and recovery.
+
+      version_upgrade
+              This option will set the superblock to the latest version,
+              allowing any new features to be used.
+
+      wide_macs
+              This option allows the storage of full 128 bits of 
+              cryptographic MACs, instead of the default of 80 bits.
+
+      
 
 Device management
 -----------------
